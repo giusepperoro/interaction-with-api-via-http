@@ -8,9 +8,10 @@ import (
 )
 
 type ServiceConfiguration struct {
-	PostgresConnectUrl  string `yaml:"postgresConnectUrl"`
-	ServerAddressUrl    string `yaml:"serverAddressUrl"`
-	PostgresConnectPort string `yaml:"postgresConnectPort"`
+	PostgresConnectUrl string `yaml:"postgresConnectUrl"`
+	ServerAddressUrl   string `yaml:"serverAddressUrl"`
+	TakeDataUrl        string `yaml:"takeDataUrl"`
+	//PostgresConnectPort string `yaml:"postgresConnectPort"`
 }
 
 func GetConfigFromFile(filename string) (ServiceConfiguration, error) {
