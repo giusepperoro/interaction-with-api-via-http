@@ -1,4 +1,4 @@
 postgresConnectUrl: "postgres://postgres:postgres@database:5432/master"
-serverAddressUrl: "localhost:3000"
+serverAddressUrl: "0.0.0.0:80"
 takeDataUrl: "https://randomuser.me/api/"
 #postgresConnectPort: "5432"

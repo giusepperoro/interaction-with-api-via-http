@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-const configFilePath = "./internal/envs/config.yaml"
+const configFilePath = "./envs/config.yaml"
 
 func main() {
 	cfg, err := config.GetConfigFromFile(configFilePath)
