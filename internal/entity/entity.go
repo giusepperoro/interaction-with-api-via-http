@@ -64,7 +64,7 @@ type Picture struct {
 	Thumbnail string `json:"thumbnail"`
 }
 
-type Result struct {
+type Result []struct {
 	Gender     string     `json:"gender"`
 	Name       Name       `json:"name"`
 	Location   Location   `json:"location"`

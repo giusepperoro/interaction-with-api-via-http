@@ -17,5 +17,6 @@ func New(cfg config.ServiceConfiguration) (*DataBase, error) {
 }
 
 func (d *DataBase) AddToDatabase(ctx context.Context, data entity.Result) (bool, error) {
+
 	return false, nil
 }
