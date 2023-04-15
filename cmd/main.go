@@ -18,6 +18,6 @@ func main() {
 	fmt.Println("cfg:", cfg)
 	c := handlers.NewAddToDatabaseHandler(cfg)
 	router := gin.Default()
-	router.GET("/", c.HandleAddToDatabase)
+	router.GET("/add", c.HandleAddToDatabase)
 	router.Run(cfg.ServerAddressUrl)
 }

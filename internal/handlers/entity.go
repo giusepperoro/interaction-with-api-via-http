@@ -8,7 +8,8 @@ import (
 
 type DataRequest struct {
 	gorm.Model
-	results []entity.Result `json:"results"`
+	Results entity.Result `json:"results"`
+	Info    entity.Info   `json:"info"`
 }
 
 type DataSavedResponse struct {
