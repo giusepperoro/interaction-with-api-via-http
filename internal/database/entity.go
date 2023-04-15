@@ -3,11 +3,11 @@ package database
 import (
 	"context"
 	"github.com/giusepperoro/interaction-with-api-via-http/internal/entity"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"gorm.io/gorm"
 )
 
 type DataBase struct {
-	Conn *pgxpool.Pool
+	Conn *gorm.DB
 }
 
 type DbManager interface {

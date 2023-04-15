@@ -4,15 +4,12 @@ import (
 	"context"
 	"github.com/giusepperoro/interaction-with-api-via-http/internal/config"
 	"github.com/giusepperoro/interaction-with-api-via-http/internal/entity"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
-func New(ctx context.Context, cfg config.ServiceConfiguration) (*DataBase, error) {
-	connection, err := pgxpool.Connect(ctx, cfg.PostgresConnectUrl)
-	if err != nil {
-		return nil, err
-	}
-	err = connection.Ping(ctx)
+func New(cfg config.ServiceConfiguration) (*DataBase, error) {
+	connection, err := gorm.Open(postgres.Open(cfg.PostgresConnectUrl), &gorm.Config{})
 	if err != nil {
 		return nil, err
 	}

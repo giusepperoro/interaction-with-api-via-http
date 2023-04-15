@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/giusepperoro/interaction-with-api-via-http/internal/config"
+	"github.com/giusepperoro/interaction-with-api-via-http/internal/handlers"
 	"log"
 )
 
@@ -15,13 +16,8 @@ func main() {
 		log.Fatal("unable to get config file name from env")
 	}
 	fmt.Println("cfg:", cfg)
-
-	r := gin.Default()
-	r.GET("./", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"cfg.SeverAddressUrl":    cfg.ServerAddressUrl,
-			"cfg.PostgresConnectUrl": cfg.PostgresConnectUrl,
-		})
-	})
-	r.Run(cfg.ServerAddressUrl)
+	c := handlers.NewAddToDatabaseHandler(cfg)
+	router := gin.Default()
+	router.GET("/", c.HandleAddToDatabase)
+	router.Run(cfg.ServerAddressUrl)
 }
